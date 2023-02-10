@@ -1,7 +1,8 @@
 
 openapi: 3.0.3
 info:
-  title: Go REST description:GraphQL and REST API for Testing and Prototyping
+  title: Go REST 
+  description: GraphQL and REST API for Testing and Prototyping
   version: 1.0.1
 servers:
   - url: https://gorest.co.in/public/v2
