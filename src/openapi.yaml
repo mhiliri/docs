@@ -30,7 +30,21 @@ paths:
                 type: array
                 items:
                  $ref: '#/components/schemas/User'
-
+  /comments:
+    get:
+      tags:
+        - comments
+      summary: Get list of comments
+      description: Get list of comments
+      responses:
+        '200':
+          description: A JSON array of comments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                $ref: '#/components/schemas/Comments'           
 components:
   schemas:
     User:
@@ -51,6 +65,24 @@ components:
         status:
           type: string
           example: active
+    Comments:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1
+        post_id:
+          type: string
+          example: 1
+        name:
+          type: string
+          example: John Doe
+        email:
+          type: string
+          example: john.doe@example.com
+        body:
+          type: string
+          example: This is a comment.
   securitySchemes:
     bearerAuth:
       type: http
