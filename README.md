@@ -37,6 +37,10 @@ Reference:
 
 
 ### How to run  
+Run 
+```
+npm install
+```
 
 In the terminal run the follow command
 ```
