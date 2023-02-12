@@ -69,6 +69,7 @@ paths:
               schema:
                 type: array
                 items:
+<<<<<<< HEAD
                  $ref: '#/components/schemas/UserPosts'  
   /todos:
     get:
@@ -85,6 +86,30 @@ paths:
                 type: array
                 items:
                  $ref: '#/components/schemas/Todo'        
+=======
+                 $ref: '#/components/schemas/UserPosts'       
+  /users/{id}:
+    get:
+      tags:
+        - users
+      summary: Get a user by ID
+      description: Get a user by ID
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A JSON object of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+>>>>>>> fcafae5 (Add Get User Detail Enpoint)
 components:
   schemas:
     User:
@@ -138,6 +163,7 @@ components:
         body:
           type: string
           example: Body content example.
+<<<<<<< HEAD
     Todo:
       type: object
       properties: 
@@ -156,6 +182,27 @@ components:
         status:
           type: string 
           example: pending
+=======
+
+    User:
+      type: object          
+      properties:
+        id:
+          type: integer
+          example: 693
+        name:
+          type: string
+          example: Chanda Devar
+        email:
+          type: string
+          example: devar_chanda@runolfsdottir.io
+        gender:
+          type: string
+          example: female
+        status:
+          type: string
+          example: inactive
+>>>>>>> fcafae5 (Add Get User Detail Enpoint)
   securitySchemes:
     bearerAuth:
       type: http
