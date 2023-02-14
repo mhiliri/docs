@@ -149,18 +149,18 @@ components:
     Todo:
         type: object
         properties:
-          id:
-            type: integer
-            example: 23
-          user_id:
-            type: integer
-            example: 733
-          title:
-            type: string
-            example: Todo Title Example
-          body:
+        id:
+          type: integer
+          example: 23
+        user_id:
+          type: integer
+          example: 23
+        title:
           type: string
-          example: Body content example.
+          example: Todo Title Example
+        body:
+        type: string
+        example: Body content example.
   securitySchemes:
     bearerAuth:
       type: http
