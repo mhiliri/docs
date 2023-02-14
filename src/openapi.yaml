@@ -61,7 +61,7 @@ paths:
                 type: array
                 items:
                 $ref: '#/components/schemas/Comments'
-                
+
   /users/{user_id}/posts:
     get:
       tags:
@@ -186,6 +186,7 @@ components:
         status:
           type: string 
           example: pending
+
 
   securitySchemes:
     bearerAuth:
