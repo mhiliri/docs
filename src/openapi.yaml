@@ -1,7 +1,6 @@
-
 openapi: 3.0.3
 info:
-  title: Go REST 
+  title: Go REST
   description: GraphQL and REST API for Testing and Prototyping
   version: 1.0.1
 servers:
@@ -23,14 +22,48 @@ paths:
       summary: Get list of users
       description: Get list of users
       responses:
-        '200':
+        "200":
           description: A JSON array of Users
           content:
             application/json:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
+  /users/{user_id}:
+    put:
+      tags:
+        - users
+      summary: Modify a property of user
+      description: With this endpoint you can modify any property of certain user, it requires the userID property. You can change the next properties -> name, email, gender(male or female) and status (active or inactive)
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: name
+          in: query
+          schema:
+            type: string
+            required: true
+        - name: email
+          in: query
+          schema:
+            type: string
+            required: false      
+
+      responses:
+        "200":
+          description: The user updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
   /comments:
     get:
       tags:
@@ -38,14 +71,14 @@ paths:
       summary: Get list of comments
       description: Get list of comments
       responses:
-        '200':
+        "200":
           description: A JSON array of comments
           content:
             application/json:
               schema:
                 type: array
                 items:
-                $ref: '#/components/schemas/Comments'
+                $ref: "#/components/schemas/Comments"
 
   /users/{user_id}/posts:
     get:
@@ -62,14 +95,14 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        "200":
           description: A JSON array of Users Posts
           content:
             application/json:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/UserPosts'  
+                  $ref: "#/components/schemas/UserPosts"
   /todos:
     get:
       tags:
@@ -77,18 +110,18 @@ paths:
       summary: Get list of todos
       description: Get list of todos
       responses:
-        '200':
+        "200":
           description: A JSON array of Todos.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/Todo'        
+                  $ref: "#/components/schemas/Todo"
 components:
   schemas:
     User:
-      type: object          
+      type: object
       properties:
         id:
           type: string
@@ -124,7 +157,7 @@ components:
           type: string
           example: This is a comment.
     UserPosts:
-      type: object          
+      type: object
       properties:
         id:
           type: integer
@@ -140,7 +173,7 @@ components:
           example: Body content example.
     Todo:
       type: object
-      properties: 
+      properties:
         id:
           type: integer
           example: 12773
@@ -149,12 +182,12 @@ components:
           example: 385545
         title:
           type: string
-          example: Todo Title 
+          example: Todo Title
         due_on:
-          type: string 
+          type: string
           example: 2023-03-10T00:00:00.000+05:30
         status:
-          type: string 
+          type: string
           example: pending
   securitySchemes:
     bearerAuth:
@@ -162,6 +195,5 @@ components:
       scheme: bearer
       bearerFormat: JWT
 
-
 security:
-  - bearerAuth: [] 
+  - bearerAuth: []

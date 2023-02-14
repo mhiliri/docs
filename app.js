@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const axios = require('axios');
 
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
