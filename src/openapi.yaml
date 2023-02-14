@@ -69,7 +69,30 @@ paths:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/UserPosts'           
+                 $ref: '#/components/schemas/UserPosts'
+  /users/{user_id}/todos:
+    get:
+      tags:
+        - todos
+      summary: Get list of user's todos
+      description: Get list of user's todos
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A JSON array of user's todos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'           
 components:
   schemas:
     User:
@@ -120,6 +143,21 @@ components:
         title:
           type: string
           example: Post Title Example.
+        body:
+          type: string
+          example: Body content example.
+    Todo:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 23
+        user_id:
+          type: integer
+          example: 23
+        title:
+          type: string
+          example: Todo Title Example
         body:
           type: string
           example: Body content example.
