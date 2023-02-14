@@ -99,7 +99,25 @@ paths:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/Todo'        
+                 $ref: '#/components/schemas/Todo'      
+  delete:
+      tags:
+        - user
+      summary: Delete user
+      description: Needs an user id for delete.
+      operationId: deleteUser
+      parameters:
+        - name: username
+          in: path
+          description: The username that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found  
 components:
   schemas:
     User:
