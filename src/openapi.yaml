@@ -84,6 +84,28 @@ paths:
               schema:
                 type: array
                 items:
+                 $ref: '#/components/schemas/UserPosts'       
+  /users/{id}:
+    get:
+      tags:
+        - users
+      summary: Get a user by ID
+      description: Get a user by ID
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A JSON object of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
                  $ref: '#/components/schemas/UserPosts'         
   /todos:
     get:
@@ -153,6 +175,25 @@ components:
         body:
           type: string
           example: Body content example.
+
+    User:
+      type: object          
+      properties:
+        id:
+          type: integer
+          example: 693
+        name:
+          type: string
+          example: Chanda Devar
+        email:
+          type: string
+          example: devar_chanda@runolfsdottir.io
+        gender:
+          type: string
+          example: female
+        status:
+          type: string
+          example: inactive
     Posts:
       type: object
       properties:
