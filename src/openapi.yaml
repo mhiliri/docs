@@ -147,8 +147,8 @@ components:
           type: string
           example: Body content example.
     Todo:
-        type: object
-        properties:
+      type: object
+      properties:
         id:
           type: integer
           example: 23
@@ -159,8 +159,8 @@ components:
           type: string
           example: Todo Title Example
         body:
-        type: string
-        example: Body content example.
+          type: string
+          example: Body content example.
   securitySchemes:
     bearerAuth:
       type: http
