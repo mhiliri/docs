@@ -84,7 +84,7 @@ paths:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/Todo'        
+                 $ref: '#/components/schemas/Todo' 
 components:
   schemas:
     User:
