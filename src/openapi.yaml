@@ -69,7 +69,22 @@ paths:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/UserPosts'           
+                 $ref: '#/components/schemas/UserPosts'  
+  /todos:
+    get:
+      tags:
+        - todos
+      summary: Get list of todos
+      description: Get list of todos
+      responses:
+        '200':
+          description: A JSON array of Todos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                 $ref: '#/components/schemas/Todo'        
 components:
   schemas:
     User:
@@ -123,6 +138,24 @@ components:
         body:
           type: string
           example: Body content example.
+    Todo:
+      type: object
+      properties: 
+        id:
+          type: integer
+          example: 12773
+        user_id:
+          type: integer
+          example: 385545
+        title:
+          type: string
+          example: Todo Title 
+        due_on:
+          type: string 
+          example: 2023-03-10T00:00:00.000+05:30
+        status:
+          type: string 
+          example: pending
   securitySchemes:
     bearerAuth:
       type: http
