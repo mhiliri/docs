@@ -60,8 +60,7 @@ paths:
               schema:
                 type: array
                 items:
-                $ref: '#/components/schemas/Comments'
-                
+                $ref: '#/components/schemas/Comments'            
   /users/{user_id}/posts:
     get:
       tags:
@@ -84,7 +83,30 @@ paths:
               schema:
                 type: array
                 items:
-                 $ref: '#/components/schemas/UserPosts'       
+                 $ref: '#/components/schemas/UserPosts'
+/users/{user_id}/comments:
+    get:
+      tags:
+        - comments
+      summary: Get list of users comments
+      description: Get list of users comments
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A JSON array of Users Comments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                 $ref: '#/components/schemas/UserComments'       
   /users/{id}:
     get:
       tags:
@@ -178,6 +200,21 @@ components:
         body:
           type: string
           example: This is a comment.
+    UserComments:
+      type: object          
+      properties:
+        id:
+          type: integer
+          example: 101010
+        user_id:
+          type: integer
+          example: 202020
+        title:
+          type: string
+          example: Comment Title Example.
+        body:
+          type: string
+          example: Body Comment example.
     UserPosts:
       type: object          
       properties:
